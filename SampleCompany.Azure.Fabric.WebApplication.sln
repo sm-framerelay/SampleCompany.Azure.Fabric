@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCompany.Azure.Fabric.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces", "src\SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces\SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces.csproj", "{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{401F5FBF-A2C5-4ADD-BF8D-333D7E91D641}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCompany.Azure.Fabric.Shared", "src\SampleCompany.Azure.Fabric.Shared\SampleCompany.Azure.Fabric.Shared.csproj", "{1F72D6FE-9308-419C-A37C-AE220351D1AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +69,14 @@ Global
 		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}.Release|Any CPU.ActiveCfg = Release|x64
 		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}.Release|x64.ActiveCfg = Release|x64
 		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}.Release|x64.Build.0 = Release|x64
+		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Debug|x64.Build.0 = Debug|Any CPU
+		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Release|x64.ActiveCfg = Release|Any CPU
+		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +87,7 @@ Global
 		{2428182E-6855-4E97-AD6A-C1E0DA6510D4} = {0F0408FA-CD5F-4F39-AE6E-FA34D7BE985A}
 		{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A} = {2428182E-6855-4E97-AD6A-C1E0DA6510D4}
 		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F} = {2428182E-6855-4E97-AD6A-C1E0DA6510D4}
+		{1F72D6FE-9308-419C-A37C-AE220351D1AE} = {401F5FBF-A2C5-4ADD-BF8D-333D7E91D641}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F380F3D6-AA0F-4F78-B8F9-C60B8BA50E60}

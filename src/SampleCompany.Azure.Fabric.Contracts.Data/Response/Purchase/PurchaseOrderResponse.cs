@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Runtime.Serialization;
-using SampleCompany.Azure.Fabric.Contracts.Data.Dto.Purchase;
 
 namespace SampleCompany.Azure.Fabric.Contracts.Data.Response.Purchase
 {
@@ -8,6 +7,6 @@ namespace SampleCompany.Azure.Fabric.Contracts.Data.Response.Purchase
     public class PurchaseOrderResponse
     {
         [DataMember]
-        public IList<OrderDetailsDto> OrderDetails { get; set; }
+        public Guid OrderId { get; set; }
     }
 }

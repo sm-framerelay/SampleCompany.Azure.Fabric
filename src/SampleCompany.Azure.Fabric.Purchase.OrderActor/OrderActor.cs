@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
-using Microsoft.ServiceFabric.Actors.Client;
+using SampleCompany.Azure.Fabric.Contracts.Data.Dto.Purchase;
 using SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces;
 
 namespace SampleCompany.Azure.Fabric.Purchase.OrderActor
@@ -19,8 +18,16 @@ namespace SampleCompany.Azure.Fabric.Purchase.OrderActor
     ///  - None: State is kept in memory only and not replicated.
     /// </remarks>
     [StatePersistence(StatePersistence.Persisted)]
-    internal class OrderActor : Actor, IOrderActor
+    internal class OrderActor : Actor, IOrderActor,  IRemindable
     {
+        private const string OrdersKey = "Orders";
+        private const string OrderStatusKey = "OrderStatus";
+        private const string FulfillOrderReminderKey = "FulfillOrderReminder";
+
+        // Reminder settings
+        private const int ReminderDueTimeoutInSeconds = 12;
+        private const int ReminderPeriodTimeoutInSeconds = 12;
+
         /// <summary>
         /// Initializes a new instance of OrderActor
         /// </summary>
@@ -38,34 +45,49 @@ namespace SampleCompany.Azure.Fabric.Purchase.OrderActor
         protected override Task OnActivateAsync()
         {
             ActorEventSource.Current.ActorMessage(this, "Actor activated.");
-
-            // The StateManager is this actor's private state store.
-            // Data stored in the StateManager will be replicated for high-availability for actors that use volatile or persisted state storage.
-            // Any serializable object can be saved in the StateManager.
-            // For more information, see https://aka.ms/servicefabricactorsstateserialization
-
-            return this.StateManager.TryAddStateAsync("count", 0);
+            return Task.CompletedTask;
         }
 
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <returns></returns>
-        Task<int> IOrderActor.GetCountAsync(CancellationToken cancellationToken)
+        public async Task SubmitOrderAsync(List<OrderDto> orders, CancellationToken cancellationToken)
         {
-            return this.StateManager.GetStateAsync<int>("count", cancellationToken);
+            if (null == orders?.Count)
+            {
+                ActorEventSource.Current.Message("The submitted order is empty, nothing to process. Terminated.");
+                return;
+            }
+
+            try
+            {
+                await StateManager.SetStateAsync(OrdersKey, new List<OrderDto>(orders), cancellationToken);
+                await StateManager.SetStateAsync(OrderStatusKey, OrderStatusTypeDto.Submitted, cancellationToken);
+
+                await RegisterReminderAsync(
+                    FulfillOrderReminderKey,
+                    null,
+                    TimeSpan.FromSeconds(ReminderDueTimeoutInSeconds),
+                    TimeSpan.FromSeconds(ReminderPeriodTimeoutInSeconds));
+            }
+            catch (Exception e)
+            {
+                ActorEventSource.Current.Message(e.ToString());
+            }
+
+            ActorEventSource.Current.Message("Order submitted with {0} items", orders.Count);
         }
 
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        Task IOrderActor.SetCountAsync(int count, CancellationToken cancellationToken)
+        public async Task ReceiveReminderAsync(string reminderName, byte[] state, TimeSpan dueTime, TimeSpan period)
         {
-            // Requests are not guaranteed to be processed in order nor at most once.
-            // The update function here verifies that the incoming count is greater than the current count to preserve order.
-            return this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value, cancellationToken);
+            // Check reminder name
+            if (FulfillOrderReminderKey != reminderName)
+            {
+                throw new InvalidOperationException("Unknown reminder key: " + reminderName);
+            }
+
+            // TODO: Fill business logic here
+
+            // Remove reminder to garbage collect the Actor
+            var orderReminder = GetReminder(FulfillOrderReminderKey);
+            await UnregisterReminderAsync(orderReminder);
         }
     }
 }

@@ -1,32 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
 using Microsoft.ServiceFabric.Services.Remoting;
+using SampleCompany.Azure.Fabric.Contracts.Data.Dto.Purchase;
 
 [assembly: FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener, RemotingClient = RemotingClient.V2Client)]
 namespace SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces
 {
     /// <summary>
-    /// This interface defines the methods exposed by an actor.
-    /// Clients use this interface to interact with the actor that implements it.
+    /// Order Actor which places submitted orders
     /// </summary>
     public interface IOrderActor : IActor
     {
         /// <summary>
-        /// TODO: Replace with your own actor method.
+        /// Process orders passed in parameters
         /// </summary>
-        /// <returns></returns>
-        Task<int> GetCountAsync(CancellationToken cancellationToken);
-
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        Task SetCountAsync(int count, CancellationToken cancellationToken);
+        /// <param name="orders">Orders to process</param>
+        /// <param name="cancellationToken">Cancellation token to drop operation if needed</param>
+        /// <returns>Task to execute</returns>
+        Task SubmitOrderAsync(List<OrderDto> orders, CancellationToken cancellationToken);
     }
 }
