@@ -71,6 +71,13 @@ namespace SampleCompany.Azure.Fabric.Purchase.OrderActor
             }
         }
 
+        protected override Task OnDeactivateAsync()
+        {
+            _tokenSource.Cancel();
+            _tokenSource.Dispose();
+            return Task.FromResult(true);
+        }
+
         public async Task SubmitOrderAsync(List<OrderDto> orders, CancellationToken cancellationToken)
         {
             if (null == orders?.Count)
