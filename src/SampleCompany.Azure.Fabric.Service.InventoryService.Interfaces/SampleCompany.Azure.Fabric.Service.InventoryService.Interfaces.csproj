@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SampleCompany.Azure.Fabric.Contracts.Data\SampleCompany.Azure.Fabric.Contracts.Data.csproj" />
     <ProjectReference Include="..\SampleCompany.Azure.Fabric.Shared\SampleCompany.Azure.Fabric.Shared.csproj" />
   </ItemGroup>
 

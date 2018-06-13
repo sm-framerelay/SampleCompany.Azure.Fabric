@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
+using SampleCompany.Azure.Fabric.Contracts.Data.Dto.Inventory;
 using SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces;
 using SampleCompany.Azure.Fabric.Shared;
 
@@ -15,6 +18,8 @@ namespace SampleCompany.Azure.Fabric.Service.InventoryService
     /// </summary>
     internal sealed class InventoryService : StatefulService, IInventoryService
     {
+        private const string InventoryItemsStorageKey = "inventoryStorage";
+
         public InventoryService(StatefulServiceContext context)
             : base(context)
         { }
@@ -28,7 +33,10 @@ namespace SampleCompany.Azure.Fabric.Service.InventoryService
         /// <returns>A collection of listeners.</returns>
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
-            return new ServiceReplicaListener[0];
+            return new[]
+            {
+                new ServiceReplicaListener(this.CreateServiceRemotingListener)
+            };
         }
 
         /// <summary>
@@ -63,6 +71,21 @@ namespace SampleCompany.Azure.Fabric.Service.InventoryService
         public Task<int> RemoveStockAsync(Guid itemId, int quantity, OrderActorMessageId messageId)
         {
             return Task.FromResult(1);
+        }
+
+        public async Task<bool> CreateInventoryItemAsync(InventoryItemDto item)
+        {
+            var itemsStorage =
+                await StateManager.GetOrAddAsync<IReliableDictionary<Guid, InventoryItemDto>>(InventoryItemsStorageKey);
+
+            using (var transaction = StateManager.CreateTransaction())
+            {
+                await itemsStorage.AddAsync(transaction, item.Id, item);
+                await transaction.CommitAsync();
+                ServiceEventSource.Current.ServiceMessage(this, "Inventory item has been added to storage: {0}", item);
+            }
+
+            return true;
         }
     }
 }

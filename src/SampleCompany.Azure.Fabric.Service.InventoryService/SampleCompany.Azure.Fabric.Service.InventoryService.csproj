@@ -102,6 +102,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SampleCompany.Azure.Fabric.Contracts.Data\SampleCompany.Azure.Fabric.Contracts.Data.csproj">
+      <Project>{BC6197BD-30C5-483A-949F-D333C6CB6F4E}</Project>
+      <Name>SampleCompany.Azure.Fabric.Contracts.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces\SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces.csproj">
       <Project>{31054735-FE42-43F7-8FAE-0E308F0B5526}</Project>
       <Name>SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces</Name>

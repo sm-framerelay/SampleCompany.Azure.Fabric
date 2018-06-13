@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SampleCompany.Azure.Fabric.Contracts.Data\SampleCompany.Azure.Fabric.Contracts.Data.csproj" />
     <ProjectReference Include="..\SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces\SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces.csproj" />
+    <ProjectReference Include="..\SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces\SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces.csproj" />
     <ProjectReference Include="..\SampleCompany.Azure.Fabric.Shared\SampleCompany.Azure.Fabric.Shared.csproj" />
   </ItemGroup>
 
