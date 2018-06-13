@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "SampleCompany.Azure.Fabric.Application", "src\SampleCompany.Azure.Fabric.Application\SampleCompany.Azure.Fabric.Application.sfproj", "{48BDFCDD-9187-4CDC-994A-984A6BFC6989}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleCompany.Azure.Fabric.WebApi", "src\SampleCompany.Azure.Fabric.WebApi\SampleCompany.Azure.Fabric.WebApi.csproj", "{278D2A57-BE27-4032-8F2E-8E504B46C577}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAPI", "WebAPI", "{52727046-E2B9-4D85-BD9F-FC97A43F514E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{CE75825F-CE8E-4ABA-85CB-0E25F2C0B047}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleCompany.Azure.Fabric.Contracts.Data", "src\SampleCompany.Azure.Fabric.Contracts.Data\SampleCompany.Azure.Fabric.Contracts.Data.csproj", "{BC6197BD-30C5-483A-949F-D333C6CB6F4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48BDFCDD-9187-4CDC-994A-984A6BFC6989}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{48BDFCDD-9187-4CDC-994A-984A6BFC6989}.Debug|x64.ActiveCfg = Debug|x64
+		{48BDFCDD-9187-4CDC-994A-984A6BFC6989}.Debug|x64.Build.0 = Debug|x64
+		{48BDFCDD-9187-4CDC-994A-984A6BFC6989}.Debug|x64.Deploy.0 = Debug|x64
+		{48BDFCDD-9187-4CDC-994A-984A6BFC6989}.Release|Any CPU.ActiveCfg = Release|x64
+		{48BDFCDD-9187-4CDC-994A-984A6BFC6989}.Release|x64.ActiveCfg = Release|x64
+		{48BDFCDD-9187-4CDC-994A-984A6BFC6989}.Release|x64.Build.0 = Release|x64
+		{48BDFCDD-9187-4CDC-994A-984A6BFC6989}.Release|x64.Deploy.0 = Release|x64
+		{278D2A57-BE27-4032-8F2E-8E504B46C577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{278D2A57-BE27-4032-8F2E-8E504B46C577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{278D2A57-BE27-4032-8F2E-8E504B46C577}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{278D2A57-BE27-4032-8F2E-8E504B46C577}.Debug|x64.Build.0 = Debug|Any CPU
+		{278D2A57-BE27-4032-8F2E-8E504B46C577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{278D2A57-BE27-4032-8F2E-8E504B46C577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{278D2A57-BE27-4032-8F2E-8E504B46C577}.Release|x64.ActiveCfg = Release|Any CPU
+		{278D2A57-BE27-4032-8F2E-8E504B46C577}.Release|x64.Build.0 = Release|Any CPU
+		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Debug|x64.Build.0 = Debug|Any CPU
+		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Release|x64.ActiveCfg = Release|Any CPU
+		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{278D2A57-BE27-4032-8F2E-8E504B46C577} = {52727046-E2B9-4D85-BD9F-FC97A43F514E}
+		{BC6197BD-30C5-483A-949F-D333C6CB6F4E} = {CE75825F-CE8E-4ABA-85CB-0E25F2C0B047}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F380F3D6-AA0F-4F78-B8F9-C60B8BA50E60}
+	EndGlobalSection
+EndGlobal
