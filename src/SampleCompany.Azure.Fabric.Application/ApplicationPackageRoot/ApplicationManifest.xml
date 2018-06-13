@@ -2,10 +2,16 @@
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="SampleCompany.Azure.Fabric.ApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="SampleCompany.Azure.Fabric.WebApi_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="OrderActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="OrderActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="OrderActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="SampleCompany.Azure.Fabric.Purchase.OrderActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="SampleCompany.Azure.Fabric.WebApiPkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -20,6 +26,11 @@
       <StatelessService ServiceTypeName="SampleCompany.Azure.Fabric.WebApiType" InstanceCount="[SampleCompany.Azure.Fabric.WebApi_InstanceCount]">
         <SingletonPartition />
       </StatelessService>
+    </Service>
+    <Service Name="OrderActorService" GeneratedIdRef="ef4e69fe-9f4e-4a04-ad40-72ddfbf665b3|Persisted">
+      <StatefulService ServiceTypeName="OrderActorServiceType" TargetReplicaSetSize="[OrderActorService_TargetReplicaSetSize]" MinReplicaSetSize="[OrderActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[OrderActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
     </Service>
   </DefaultServices>
 </ApplicationManifest>

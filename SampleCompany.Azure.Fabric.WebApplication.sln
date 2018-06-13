@@ -13,6 +13,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleCompany.Azure.Fabric.Contracts.Data", "src\SampleCompany.Azure.Fabric.Contracts.Data\SampleCompany.Azure.Fabric.Contracts.Data.csproj", "{BC6197BD-30C5-483A-949F-D333C6CB6F4E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Actors", "Actors", "{0F0408FA-CD5F-4F39-AE6E-FA34D7BE985A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Purchase", "Purchase", "{2428182E-6855-4E97-AD6A-C1E0DA6510D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCompany.Azure.Fabric.Purchase.OrderActor", "src\SampleCompany.Azure.Fabric.Purchase.OrderActor\SampleCompany.Azure.Fabric.Purchase.OrderActor.csproj", "{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces", "src\SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces\SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces.csproj", "{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +53,18 @@ Global
 		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Release|x64.ActiveCfg = Release|Any CPU
 		{BC6197BD-30C5-483A-949F-D333C6CB6F4E}.Release|x64.Build.0 = Release|Any CPU
+		{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A}.Debug|x64.ActiveCfg = Debug|x64
+		{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A}.Debug|x64.Build.0 = Debug|x64
+		{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A}.Release|Any CPU.ActiveCfg = Release|x64
+		{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A}.Release|x64.ActiveCfg = Release|x64
+		{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A}.Release|x64.Build.0 = Release|x64
+		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}.Debug|x64.ActiveCfg = Debug|x64
+		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}.Debug|x64.Build.0 = Debug|x64
+		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}.Release|Any CPU.ActiveCfg = Release|x64
+		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}.Release|x64.ActiveCfg = Release|x64
+		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +72,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{278D2A57-BE27-4032-8F2E-8E504B46C577} = {52727046-E2B9-4D85-BD9F-FC97A43F514E}
 		{BC6197BD-30C5-483A-949F-D333C6CB6F4E} = {CE75825F-CE8E-4ABA-85CB-0E25F2C0B047}
+		{2428182E-6855-4E97-AD6A-C1E0DA6510D4} = {0F0408FA-CD5F-4F39-AE6E-FA34D7BE985A}
+		{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A} = {2428182E-6855-4E97-AD6A-C1E0DA6510D4}
+		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F} = {2428182E-6855-4E97-AD6A-C1E0DA6510D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F380F3D6-AA0F-4F78-B8F9-C60B8BA50E60}
