@@ -4,6 +4,10 @@
     {
         Unknown = 0,
         New = 1,
-        Submitted = 2
+        Submitted = 2,
+        InProcess = 3,
+        Backordered = 4,
+        Shipped = 5,
+        Canceled = 6
     }
 }

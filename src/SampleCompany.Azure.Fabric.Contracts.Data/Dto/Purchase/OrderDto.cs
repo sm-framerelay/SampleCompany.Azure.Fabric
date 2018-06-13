@@ -11,5 +11,8 @@ namespace SampleCompany.Azure.Fabric.Contracts.Data.Dto.Purchase
 
         [DataMember]
         public int Quantity { get; set; }
+
+        [DataMember]
+        public int Remaining { get; set; }
     }
 }

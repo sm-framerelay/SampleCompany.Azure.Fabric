@@ -33,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleCompany.Azure.Fabric.Purchase.OrderActor\SampleCompany.Azure.Fabric.Purchase.OrderActor.csproj" />
+    <ProjectReference Include="..\SampleCompany.Azure.Fabric.Service.InventoryService\SampleCompany.Azure.Fabric.Service.InventoryService.csproj" />
     <ProjectReference Include="..\SampleCompany.Azure.Fabric.WebApi\SampleCompany.Azure.Fabric.WebApi.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

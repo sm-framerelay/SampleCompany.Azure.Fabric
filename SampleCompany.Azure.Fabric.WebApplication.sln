@@ -23,7 +23,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCompany.Azure.Fabric.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{401F5FBF-A2C5-4ADD-BF8D-333D7E91D641}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCompany.Azure.Fabric.Shared", "src\SampleCompany.Azure.Fabric.Shared\SampleCompany.Azure.Fabric.Shared.csproj", "{1F72D6FE-9308-419C-A37C-AE220351D1AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleCompany.Azure.Fabric.Shared", "src\SampleCompany.Azure.Fabric.Shared\SampleCompany.Azure.Fabric.Shared.csproj", "{1F72D6FE-9308-419C-A37C-AE220351D1AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCompany.Azure.Fabric.Service.InventoryService", "src\SampleCompany.Azure.Fabric.Service.InventoryService\SampleCompany.Azure.Fabric.Service.InventoryService.csproj", "{4940C5A9-E676-4ED1-877C-8DE8749ADC8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{AB9FC90C-057F-4966-A5CC-5D2D996650FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inventory", "Inventory", "{27C45A48-268D-4E7D-8CE8-A0832AE61687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces", "src\SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces\SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces.csproj", "{31054735-FE42-43F7-8FAE-0E308F0B5526}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +85,20 @@ Global
 		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Release|x64.ActiveCfg = Release|Any CPU
 		{1F72D6FE-9308-419C-A37C-AE220351D1AE}.Release|x64.Build.0 = Release|Any CPU
+		{4940C5A9-E676-4ED1-877C-8DE8749ADC8B}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{4940C5A9-E676-4ED1-877C-8DE8749ADC8B}.Debug|x64.ActiveCfg = Debug|x64
+		{4940C5A9-E676-4ED1-877C-8DE8749ADC8B}.Debug|x64.Build.0 = Debug|x64
+		{4940C5A9-E676-4ED1-877C-8DE8749ADC8B}.Release|Any CPU.ActiveCfg = Release|x64
+		{4940C5A9-E676-4ED1-877C-8DE8749ADC8B}.Release|x64.ActiveCfg = Release|x64
+		{4940C5A9-E676-4ED1-877C-8DE8749ADC8B}.Release|x64.Build.0 = Release|x64
+		{31054735-FE42-43F7-8FAE-0E308F0B5526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31054735-FE42-43F7-8FAE-0E308F0B5526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31054735-FE42-43F7-8FAE-0E308F0B5526}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{31054735-FE42-43F7-8FAE-0E308F0B5526}.Debug|x64.Build.0 = Debug|Any CPU
+		{31054735-FE42-43F7-8FAE-0E308F0B5526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31054735-FE42-43F7-8FAE-0E308F0B5526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31054735-FE42-43F7-8FAE-0E308F0B5526}.Release|x64.ActiveCfg = Release|Any CPU
+		{31054735-FE42-43F7-8FAE-0E308F0B5526}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +110,9 @@ Global
 		{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A} = {2428182E-6855-4E97-AD6A-C1E0DA6510D4}
 		{1914E5D7-C7E4-4F0C-B417-C6041CDD193F} = {2428182E-6855-4E97-AD6A-C1E0DA6510D4}
 		{1F72D6FE-9308-419C-A37C-AE220351D1AE} = {401F5FBF-A2C5-4ADD-BF8D-333D7E91D641}
+		{4940C5A9-E676-4ED1-877C-8DE8749ADC8B} = {27C45A48-268D-4E7D-8CE8-A0832AE61687}
+		{27C45A48-268D-4E7D-8CE8-A0832AE61687} = {AB9FC90C-057F-4966-A5CC-5D2D996650FA}
+		{31054735-FE42-43F7-8FAE-0E308F0B5526} = {27C45A48-268D-4E7D-8CE8-A0832AE61687}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F380F3D6-AA0F-4F78-B8F9-C60B8BA50E60}

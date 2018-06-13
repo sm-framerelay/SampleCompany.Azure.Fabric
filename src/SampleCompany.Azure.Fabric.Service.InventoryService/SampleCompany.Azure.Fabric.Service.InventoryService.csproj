@@ -4,21 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
-    <ProjectGuid>{4B12CA75-8FA4-4304-BE75-D4D86C8BD12A}</ProjectGuid>
+    <ProjectGuid>{4940C5A9-E676-4ED1-877C-8DE8749ADC8B}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SampleCompany.Azure.Fabric.Purchase.OrderActor</RootNamespace>
-    <AssemblyName>SampleCompany.Azure.Fabric.Purchase.OrderActor</AssemblyName>
+    <RootNamespace>SampleCompany.Azure.Fabric.Service.InventoryService</RootNamespace>
+    <AssemblyName>SampleCompany.Azure.Fabric.Service.InventoryService</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup>
-    <UpdateServiceFabricManifestEnabled>true</UpdateServiceFabricManifestEnabled>
-    <ServicePackagePath>PackageRoot</ServicePackagePath>
-    <ServicePackagePrefix>$(MSBuildProjectName)</ServicePackagePrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,12 +33,12 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
+    <AdditionalFileItemNames>$(AdditionalFileItemNames);None</AdditionalFileItemNames>
+  </PropertyGroup>
+  <PropertyGroup>
     <IsServiceFabricServiceProject>true</IsServiceFabricServiceProject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ServiceFabric.Actors, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
-      <HintPath>..\..\packages\Microsoft.ServiceFabric.Actors.3.1.283\lib\net471\Microsoft.ServiceFabric.Actors.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ServiceFabric.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
       <HintPath>..\..\packages\Microsoft.ServiceFabric.Data.3.1.283\lib\net471\Microsoft.ServiceFabric.Data.dll</HintPath>
     </Reference>
@@ -98,25 +91,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="OrderActor.cs" />
+    <Compile Include="InventoryService.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ActorEventSource.cs" />
+    <Compile Include="ServiceEventSource.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PackageRoot\ServiceManifest.xml" />
     <None Include="PackageRoot\Config\Settings.xml" />
+    <None Include="PackageRoot\ServiceManifest.xml" />
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleCompany.Azure.Fabric.Contracts.Data\SampleCompany.Azure.Fabric.Contracts.Data.csproj">
-      <Project>{BC6197BD-30C5-483A-949F-D333C6CB6F4E}</Project>
-      <Name>SampleCompany.Azure.Fabric.Contracts.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces\SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces.csproj">
-      <Project>{1914E5D7-C7E4-4F0C-B417-C6041CDD193F}</Project>
-      <Name>SampleCompany.Azure.Fabric.Purchase.OrderActor.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces\SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces.csproj">
       <Project>{31054735-FE42-43F7-8FAE-0E308F0B5526}</Project>
       <Name>SampleCompany.Azure.Fabric.Service.InventoryService.Interfaces</Name>
@@ -127,11 +112,11 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\..\packages\Microsoft.ServiceFabric.Actors.3.1.283\build\net45\Microsoft.ServiceFabric.Actors.targets" Condition="Exists('..\..\packages\Microsoft.ServiceFabric.Actors.3.1.283\build\net45\Microsoft.ServiceFabric.Actors.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Microsoft.ServiceFabric.Actors.3.1.283\build\net45\Microsoft.ServiceFabric.Actors.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.ServiceFabric.Actors.3.1.283\build\net45\Microsoft.ServiceFabric.Actors.targets'))" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
   </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>
